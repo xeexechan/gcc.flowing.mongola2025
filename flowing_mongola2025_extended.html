@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>후원 계좌 안내</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            background: #f9f9f9;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 480px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .account-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .account-number {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        button.copy-btn {
+            background-color: #007aff;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .bank-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+        .bank-btn {
+            background: #ffffff;
+            padding: 14px;
+            font-size: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: #333;
+        }
+        .note {
+            font-size: 14px;
+            color: #777;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 후원 계좌 안내</h1>
+        <div class="account-box">
+            <div>하나은행</div>
+            <div class="account-number" id="account-number">467-910491-54207</div>
+            <div>(예금주: 정진숙)</div>
+            <button class="copy-btn" onclick="copyAccount()">📋 계좌번호 복사</button>
+        </div>
+
+        <div class="bank-grid">
+            <a class="bank-btn" href="#" onclick="openApp('kb-starbanking://', 'https://play.google.com/store/apps/details?id=com.kbstar.kbbank')">국민은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('shinhan-sbank://', 'https://play.google.com/store/apps/details?id=com.shinhan.sbanking')">신한은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('hana1q://', 'https://play.google.com/store/apps/details?id=com.hanabank.ebk.channel.android.hananbank')">하나은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('wooribank://', 'https://play.google.com/store/apps/details?id=com.wooribank.smart.npib')">우리은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('kakaobank://', 'https://play.google.com/store/apps/details?id=com.kakaobank.channel')">카카오뱅크</a>
+            <a class="bank-btn" href="#" onclick="openApp('toss://', 'https://play.google.com/store/apps/details?id=viva.republica.toss')">토스</a>
+            <a class="bank-btn" href="#" onclick="openApp('nonghyupbank://', 'https://play.google.com/store/apps/details?id=nh.smart')">농협</a>
+            <a class="bank-btn" href="#" onclick="openApp('ibk-bank://', 'https://play.google.com/store/apps/details?id=com.ibk.neobanking')">기업은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('sc-bank://', 'https://play.google.com/store/apps/details?id=kr.co.standardchartered')">SC제일은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('kbankbank://', 'https://play.google.com/store/apps/details?id=com.kbankwith.smartbank')">케이뱅크</a>
+            <a class="bank-btn" href="#" onclick="openApp('dgbbank://', 'https://play.google.com/store/apps/details?id=kr.co.dgb.sbank')">대구은행</a>
+            <a class="bank-btn" href="#" onclick="openApp('bnkbank://', 'https://play.google.com/store/apps/details?id=com.bnk.financialgroup.bnkbank')">BNK경남</a>
+        </div>
+
+        <div class="note">* 클릭 시 앱 실행 또는 설치화면으로 이동합니다</div>
+    </div>
+
+    <script>
+        function copyAccount() {
+            const text = document.getElementById("account-number").innerText.replace(/-/g, "");
+            navigator.clipboard.writeText(text).then(() => {
+                alert("계좌번호가 복사되었습니다: " + text);
+            });
+        }
+
+        function openApp(appUrl, fallbackUrl) {
+            window.location.href = appUrl;
+            setTimeout(function() {
+                window.location.href = fallbackUrl;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
